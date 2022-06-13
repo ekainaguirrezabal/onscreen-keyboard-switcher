@@ -14,20 +14,18 @@ function _hideHello() {
 function _showHello() {
 
     if (turnedOn) {
-	    //Util.spawn(['xset', 'led', 'off']);
-	    //gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled false
-	    Util.spawn(['gsettings', 'set', 'org.gnome.desktop.a11y.applications screen-keyboard-enabled', 'false']);
 	    text = new St.Label({ style_class: 'helloworld-label', text: "Teclado en pantalla Desactivado " });
-	    Main.uiGroup.add_actor(text);
+	    let icon = new St.Icon({ icon_name: 'preferences-desktop-keyboard-shortcuts-symbolic', style_class: 'system-status-icon' });
 	    turnedOn = false;
     } else {
-	    //Util.spawn(['xset', 'led', 'on']);
-	    //gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true
-	    Util.spawn(['gsettings', 'set', 'org.gnome.desktop.a11y.applications screen-keyboard-enabled', 'true']);
 	    text = new St.Label({ style_class: 'helloworld-label', text: "Teclado en pantalla Activado" });
-	    Main.uiGroup.add_actor(text);
+	    let icon = new St.Icon({ icon_name: 'input-keyboard', style_class: 'system-status-icon' });
 	    turnedOn = true;
     }
+    Util.spawn(['gsettings', 'set', 'org.gnome.desktop.a11y.applications', 'screen-keyboard-enabled', turnedOn.toString()]);
+    Main.uiGroup.add_actor(text);
+    button.set_child(icon);
+
 
     text.opacity = 255;
 
