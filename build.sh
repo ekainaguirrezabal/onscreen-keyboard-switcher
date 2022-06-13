@@ -11,11 +11,11 @@
 
 set -e
 
-mkdir virtual-keyboard-switcher@eagirrezabal
-cp *.* ./virtual-keyboard-switcher@eagirrezabal
+mkdir onscreen-keyboard-switcher@eagirrezabal
+cp *.* ./onscreen-keyboard-switcher@eagirrezabal
 
 echo "Packing extension ..."
-gnome-extensions pack virtual-keyboard-switcher@eagirrezabal \
+gnome-extensions pack onscreen-keyboard-switcher@eagirrezabal \
 	--force \
 	--extra-source="extension.js" \
 	--extra-source="COPYING" 
@@ -26,8 +26,8 @@ while getopts i flag; do
     case $flag in
 
         i)  gnome-extensions install --force \
-            virtual-keyboard-switcher@eagirrezabal.shell-extension.zip && \
-            echo "Extension virtual-keyboard-switcher@eagirrezabal is installed. Please restart GNOME Shell." || \
+            onscreen-keyboard-switcher@eagirrezabal.shell-extension.zip && \
+            echo "Extension onscreen-keyboard-switcher@eagirrezabal is installed. Please restart GNOME Shell." || \
             { echo "ERROR: Could not install extension!"; exit 1; };
 
         *)  echo "ERROR: Invalid flag!"
@@ -38,6 +38,7 @@ while getopts i flag; do
 done
 
 echo "Removing extension packaging data (folder & zip)..."
-rm -rf virtual-keyboard-switcher@eagirrezabal.shell-extension.zip
+rm -rf onscreen-keyboard-switcher@eagirrezabal
+rm -rf onscreen-keyboard-switcher@eagirrezabal.shell-extension.zip
 
 

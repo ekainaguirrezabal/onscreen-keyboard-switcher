@@ -1,1 +1,1 @@
-# virtual-keyboard-switcher
+# onscreen-keyboard-switcher

@@ -1,8 +1,8 @@
 {
   "description": "Switch the virtual keyboard with one button at the top panel. Specially useful for touch screens.",
-  "name": "Virtual keyboard switcher",
+  "name": "Onscreen keyboard switcher",
   "shell-version": ["3.22.2"],
   "url": "",
-  "uuid": "virtual-keyboard-switcher@eagirrezabal",
+  "uuid": "onscreen-keyboard-switcher@eagirrezabal",
   "version": 1
 }
