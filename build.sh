@@ -11,14 +11,19 @@
 
 set -e
 
+mkdir virtual-keyboard-switcher@eagirrezabal
+cp *.* ./virtual-keyboard-switcher@eagirrezabal
+
 echo "Packing extension ..."
 gnome-extensions pack virtual-keyboard-switcher@eagirrezabal \
 	--force \
 	--extra-source="extension.js" \
 	--extra-source="COPYING" 
-	
 echo "Packing done!"
 
+cd ./virtual-keyboard-switcher@eagirrezabal
+
+echo "Installing extension ..."
 while getopts i flag; do
     case $flag in
 
