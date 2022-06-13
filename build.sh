@@ -21,8 +21,6 @@ gnome-extensions pack virtual-keyboard-switcher@eagirrezabal \
 	--extra-source="COPYING" 
 echo "Packing done!"
 
-cd ./virtual-keyboard-switcher@eagirrezabal
-
 echo "Installing extension ..."
 while getopts i flag; do
     case $flag in
@@ -30,7 +28,7 @@ while getopts i flag; do
         i)  gnome-extensions install --force \
             virtual-keyboard-switcher@eagirrezabal.shell-extension.zip && \
             echo "Extension virtual-keyboard-switcher@eagirrezabal is installed. Please restart GNOME Shell." || \
-            { echo "ERROR: Could not install extension!"; exit 1; };;
+            { echo "ERROR: Could not install extension!"; exit 1; };
 
         *)  echo "ERROR: Invalid flag!"
             echo "Use '-i' to install the extension to your system."
@@ -38,4 +36,8 @@ while getopts i flag; do
             exit 1;;
     esac
 done
+
+echo "Removing extension packaging data (folder & zip)..."
+rm -rf virtual-keyboard-switcher@eagirrezabal.shell-extension.zip
+
 
